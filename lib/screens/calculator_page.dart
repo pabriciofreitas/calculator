@@ -11,8 +11,19 @@ class CalculatorPage extends StatefulWidget {
 
 class _CalculatorPageState extends State<CalculatorPage> {
   final Memory memory = Memory();
-  _onPressed(String command) {
+  bool animatedDisplay = false;
+
+  _onPressed(String command) async {
+    if (command == "C") {
+      setState(() {
+        animatedDisplay = true;
+      });
+
+      await Future.delayed(const Duration(milliseconds: 500));
+    }
+    print("oi");
     setState(() {
+      animatedDisplay = false;
       memory.applyCommand(command);
     });
   }
@@ -24,7 +35,11 @@ class _CalculatorPageState extends State<CalculatorPage> {
       body: Column(
         children: [
           Expanded(
-            child: DisplayWidget(text: memory.value),
+            child: DisplayWidget(
+              callBack: _onPressed,
+              text: memory.value,
+              animatedDisplay: animatedDisplay,
+            ),
           ),
           SizedBox(
               height: size.height * .55,

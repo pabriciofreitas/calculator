@@ -11,6 +11,8 @@ class Memory {
       _operation = command;
     } else if (command == "C") {
       _clear();
+    } else if (command == "backButton") {
+      _removeLastDigit();
     } else if (operations.contains(command)) {
       _setOperation(command);
     } else {
@@ -48,7 +50,12 @@ class Memory {
 
     }
     _wipeValue = isEqualSign ? false : true;
-    print(_buffer);
+  }
+
+  void _removeLastDigit() {
+    _value = _value.substring(0, _value.length - 1);
+
+    _buffer[_bufferIndex] = double.tryParse(_value) ?? 0;
   }
 
   void _addDigit(String digit) {
