@@ -63,7 +63,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
       Positioned(
           bottom: 1,
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 250),
             curve: Curves.easeInOut,
             height: widget.animatedDisplay ? 550 : 50,
             width: widget.animatedDisplay ? 550 : 50,

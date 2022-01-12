@@ -99,7 +99,6 @@ class Memory {
         return _buffer[0] - _buffer[1];
       case "+":
         return _buffer[0] + _buffer[1];
-
       default:
         return _buffer[0];
     }

@@ -19,9 +19,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
         animatedDisplay = true;
       });
 
-      await Future.delayed(const Duration(milliseconds: 500));
+      await Future.delayed(const Duration(milliseconds: 250));
     }
-    print("oi");
+
     setState(() {
       animatedDisplay = false;
       memory.applyCommand(command);
